@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RekJur</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <!-- Menu -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-none">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo" alt="">
+                rekjur
+            </a>
+            <div class="hamburger" data-toggle="collapse" data-target="#openNavbar" aria-controls="openNavbar"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="openNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/form">Lakukan Prediksi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Menu -->
+
+    <!-- Section Content -->
+    <section class="content profil-siswa">
+        <div class="content_item">
+            <div class="container">
+                <div class="content_title">
+                    <h1>Form Pengisian Profil Siswa</h1>
+                    <p>Silakan isi formulir di bawah ya~</p>
+                </div>
+                <div class="form_profil_siswa">
+                    <form action="{{ url_for('predict') }}" method="post">
+
+                        <!-- Start opsi minat -->
+                        <div class="form-group">
+                            <label for="minat">Kamu minat di bidang apa? :</label>
+                            <select class="form-control" id="minat" name="minat" required>
+                                <option value="" disabled selected>Pilih Jawaban</option>
+                                <option value="4">Teknologi Komputer</option>
+                                <option value="4">Jaringan Komputer</option>
+                                <option value="3">Desain arsitektur bagunan</option>
+                                <option value="3">Industri Konstruksi</option>
+                                <option value="2">Industri Manufaktur</option>
+                                <option value="2">Pengolahan logam dan pengelasan</option>
+                                <option value="3">Perikanan dan budidaya ikan</option>
+                                <option value="3">Konservasi sumber daya alam</option>
+                                <option value="4">Pengembangan preangkat lunak</option>
+                                <option value="4">Pemograman Komputer</option>
+                                <option value="3">Ekonomi Syariah</option>
+                                <option value="3">Perbankan berbasis nilai-nilai Islam</option>
+                                <option value="2">Tata kelola perkantoran</option>
+                                <option value="2">Administrasi bisnis</option>
+                                <option value="3">Analisis keuangan</option>
+                                <option value="3">Perpajakan</option>
+                                <option value="2">Industri Sepeda motor</option>
+                                <option value="2">Perancangan dan pengembangan kendaraan sepeda motor</option>
+                            </select>
+                        </div>
+                        <!-- End opsi minat -->
+
+                        <!-- Start opsi Bakat -->
+                        <div class="form-group">
+                            <label for="bakat">Menurutmu bakat kamu ada di mana? :</label>
+                            <select class="form-control" id="bakat" name="bakat" required>
+                                <option value="" disabled selected>Pilih Jawaban</option>
+                                <option value="3">Memahami konsep teknis terkait dengan jaringan komputer</option>
+                                <option value="3">Pemahaman konsep keamanan jaringan</option> 
+                                <option value="3">Desain grafis</option>
+                                <option value="3">Memahami prinsip teknis konstuksi bangunan</option>
+                                <option value="3">memiliki pemahaman teknis pengelasan</option>
+                                <option value="5">Pemahaman tentang ekologi dan keberlanjutan sumber daya perikanan</option>
+                                <option value="4">Pemograman</option>
+                                <option value="4">Memahami struktur data</option>
+                                <option value="2">Pemahaman tentang prinsip-prinsip ekonomi Islam</option>
+                                <option value="3">Memiliki keahlian dalam penggunaan microsoft excel dan word</option>
+                                <option value="4">Analisis numerik</option>
+                                <option value="5">Perbaikan sepeda motor dan desain otomotif</option>
+                                <option value="5">Keahlian dalam analisis dan desain mesin</option>
+                            </select>
+                        </div>
+                        <!-- End opsi Bakat -->
+
+                        <!-- Start opsi kemampuan -->
+                        <div class="form-group">
+                            <label for="kemampuan">Kemampuan umum kamu apa? :</label>
+                            <select class="form-control" id="kemampuan" name="kemampuan" required>
+                                <option value="" disabled selected>Pilih Jawaban</option>
+                                <option value="4">Matematika</option>
+                                <option value="4">Ilmu Komputer</option>
+                                <option value="4">Ilmu Sains</option>
+                                <option value="2">Ilmu Pengetahuan Alam</option>
+                                <option value="2">Ilmu Sosial</option>
+                                <option value="2">Agama Islam</option>
+                            </select>
+                        </div>
+                        <!-- End opsi kemampuan -->
+
+                        <p>Jawab beberapa pertanyaan berikut :</p>
+
+                        <!-- Start pertanyaan section -->
+                        <div class="form-group">
+                            <label for="soal_penjurusan1">Apakah kamu memiliki pengetahuan tentang keamanan jaringan dan teknologi terkini?</label>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="soal_penjurusan1_iya" name="soal_penjurusan1" value="Iya" required>
+                                <label class="form-check-label" for="soal_penjurusan1_iya">Iya</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="soal_penjurusan1_tidak" name="soal_penjurusan1" value="Tidak" required>
+                                <label class="form-check-label" for="soal_penjurusan1_tidak">Tidak</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="soal_penjurusan2">Apakah menurutmu kamu itu kreatif, memiliki imajinasi yang kuat?</label>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="soal_penjurusan2_iya" name="soal_penjurusan2" value="Iya" required>
+                                <label class="form-check-label" for="soal_penjurusan2_iya">Iya</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="soal_penjurusan2_tidak" name="soal_penjurusan2" value="Tidak" required>
+                                <label class="form-check-label" for="soal_penjurusan2_tidak">Tidak</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="soal_penjurusan3">Apakah kamu memiliki ketelitian yang bagus?</label>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="soal_penjurusan3_iya" name="soal_penjurusan3" value="Iya" required>
+                                <label class="form-check-label" for="soal_penjurusan3_iya">Iya</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="soal_penjurusan3_tidak" name="soal_penjurusan3" value="Tidak" required>
+                                <label class="form-check-label" for="soal_penjurusan3_tidak">Tidak</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="soal_penjurusan4">Apakah kamu memami pasar perikanan, kemampuan dalam merawat makhluk hidup?</label>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="soal_penjurusan4_iya" name="soal_penjurusan4" value="Iya" required>
+                                <label class="form-check-label" for="soal_penjurusan4_iya">Iya</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="soal_penjurusan4_tidak" name="soal_penjurusan4" value="Tidak" required>
+                                <label class="form-check-label" for="soal_penjurusan4_tidak">Tidak</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="soal_penjurusan5">Apakah kamu memiliki pemahaman tentang metodologi pengembangan perangkat lunak?</label>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="soal_penjurusan5_iya" name="soal_penjurusan5" value="Iya" required>
+                                <label class="form-check-label" for="soal_penjurusan5_iya">Iya</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="soal_penjurusan5_tidak" name="soal_penjurusan5" value="Tidak" required>
+                                <label class="form-check-label" for="soal_penjurusan5_tidak">Tidak</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="soal_penjurusan6">Apakah kamu memahami atau tertarik dengan hukum dan etika perbankan syariah?</label>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="soal_penjurusan6_iya" name="soal_penjurusan6" value="Iya" required>
+                                <label class="form-check-label" for="soal_penjurusan6_iya">Iya</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="soal_penjurusan6_tidak" name="soal_penjurusan6" value="Tidak" required>
+                                <label class="form-check-label" for="soal_penjurusan6_tidak">Tidak</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="soal_penjurusan7">Apakah kamu memilikan ketelitian dalam pekerjaan administratif?</label>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="soal_penjurusan7_iya" name="soal_penjurusan7" value="Iya" required>
+                                <label class="form-check-label" for="soal_penjurusan7_iya">Iya</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="soal_penjurusan7_tidak" name="soal_penjurusan7" value="Tidak" required>
+                                <label class="form-check-label" for="soal_penjurusan7_tidak">Tidak</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="soal_penjurusan8">Apakah kamu memiliki ketertarikan dengan analisis data keuangan?</label>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="soal_penjurusan8_iya" name="soal_penjurusan8" value="Iya" required>
+                                <label class="form-check-label" for="soal_penjurusan8_iya">Iya</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="soal_penjurusan8_tidak" name="soal_penjurusan8" value="Tidak" required>
+                                <label class="form-check-label" for="soal_penjurusan8_tidak">Tidak</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="soal_penjurusan9">Menurut kamu apakah kamu itu kreatif dalam merancang sesuatu?</label>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="soal_penjurusan9_iya" name="soal_penjurusan9" value="Iya" required>
+                                <label class="form-check-label" for="soal_penjurusan9_iya">Iya</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="soal_penjurusan9_tidak" name="soal_penjurusan9" value="Tidak" required>
+                                <label class="form-check-label" for="soal_penjurusan9_tidak">Tidak</label>
+                            </div>
+                        </div>
+                        <!-- End pertanyaan -->
+
+
+
+                        <div class="form-group float-right form_button">
+                            <a href="/" class="btn btn-kembali"><i class="fa fa-arrow-left"></i> Kembali</a>
+                            <button type="submit" class="btn btn-submit">Proses</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Section Content -->
+
+        <!-- Footer Section -->
+        <section class="footer_section">
+            <div class="footer_item">
+                <div class="container">
+                    <div class="row">
+                        <!-- Source Code -->
+                        <div class="col-md-4">
+                            <div class="footer_info">
+                                <div class="footer_logo">
+                                    <h1><img src="{{ url_for('static', filename='images/logo.png') }}" alt=""><span class="padding"></span>rekjur</h1>
+                                </div>
+                                <div class="footer_description">
+                                    <p>rekjur adalah sistem rekomendasi jurusan SMK di kota Bengkalis yang akan merekomendasikan jurusan yang sesuai untuk kamu!</p>
+                                </div>
+                                <div class="footer_socmed">
+                                    <ul class="socmed">
+                                        <li class=""><a href=""><i class="fa fa-facebook"></i></a></li>
+                                        <li class=""><a href=""><i class="fa fa-twitter"></i></a></li>
+                                        <li class=""><a href=""><i class="fa fa-instagram"></i></a></li>
+                                        <li class=""><a href=""><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_dev">
+                        <p>Copyright &copy; 2023 - REKJUR SMK NEGERI BENGKALIS</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer Section End -->
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

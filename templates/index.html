@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RekJur</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href={{ url_for('static', filename='css/style.css') }}>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+    <!-- Menu -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-none">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo" alt="">  
+              rekjur
+            </a>
+            <div class="hamburger" data-toggle="collapse" data-target="#openNavbar" aria-controls="openNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="openNavbar">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#smkSection">SMK</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/form">Lakukan Prediksi</a>
+                </li>
+              </ul>
+        </div>
+      </nav>
+      <!-- End Menu -->
+
+    <!-- Hero Section Begin -->
+    <section class="hero_section">
+        <div class="hero_slider">
+            <div class="hero_item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="hero-info">
+                                <div class="hero_text">
+                                    <h1>Temukan Jurusan favorite kamu!</h1>
+                                    <p>Rekjur adalah sistem rekomendasi jurusan SMK di Kota Bengkalis yang akan 
+                                        merekomendasikan jurusan yang sesuai untukmu! Ikuti langkah - langkahnya untuk memulai.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="hero_img ml-2">
+                                <img src="{{ url_for('static', filename='images/hero.png') }}" width="479" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Step Section -->
+    <section class="step_section">
+        <div class="step_item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="step_wrapper">
+                            <div class="step_icon login">
+                                <img src="{{ url_for('static', filename='images/in.png') }}" alt="">
+                            </div>
+                            <div class="step_text">
+                                <h1>Mengakses Web</h1>
+                                <p>Pertama, kamu mengakses website ini untuk memulai aktivitasmu!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="step_wrapper">
+                            <div class="step_icon nilai">
+                                <img src="{{ url_for('static', filename='images/form.png') }}" alt="">
+                            </div>
+                            <div class="step_text">
+                                <h1>Input Nilai</h1>
+                                <p>Mengisi form yang tertera maka sistem akan mengolahnya</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="step_wrapper">
+                            <div class="step_icon rekomendasi">
+                                <img src="{{ url_for('static', filename='images/rekomendasi.png') }}" alt="">
+                            </div>
+                            <div class="step_text">
+                                <h1>Rekomendasi Jurusan</h1>
+                                <p>Sistem akan merekomendasikan jurusan yang terbaik untuk kamu!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Step Section End -->
+
+    <!-- Started Section -->
+    <section class="started_section">
+        <div class="started_item">
+            <div class="container">
+                <div class="started_box">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="started_left">
+                                <h1>Tunggu Apa Lagi?</h1>
+                                <p>Ayo tentukan SMK dan jurusanmu!</p>
+                                <a href="/form" class="btn btn-get-started">Mulai Prediksi <i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="started_right">
+                                <img src="{{ url_for('static', filename='images/women-studying.png') }}" width="296" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Started Section End -->
+
+    <!-- Sekolah Section -->
+    <section id="smkSection" class="sekolah_section">
+        <div class="sekolah_item">
+            <div class="container">
+                <div class="sekolah_header">
+                    <h1>SMK Negeri di Kota Bengkalis saat ini</h1>
+                    <p>Lihat data jurusan dari SMK saat ini.</p>
+                </div>
+                <div class="row row justify-content-center">
+                    <div class="col-md-3">
+                        <div class="card">
+                            <img class="card-img-top" src="https://i0.wp.com/bcc-newspack.s3.amazonaws.com/uploads/2019/09/Fig_4_3_-1.jpg?fit=2048%2C1375&ssl=1" alt="Card image cap">
+                            <div class="card-img-info">
+                                <img src="https://dapo.kemdikbud.go.id/assets/img/iconsekolah.png" alt="">
+                            </div>
+                            <div class="card-body">
+                              <p class="card-text"> </p>
+                              <h5 class="card-title">SMK Negeri 1 Bengkalis</h5>
+                              <p class="card-text"> </p>
+                              <a href="https://smkn1bengkalis.sch.id/" target="_blank" class="btn btn-detail-jurusan">Lihat Detail <i class="fa fa-arrow-right"></i></a>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <img class="card-img-top" src="https://i0.wp.com/bcc-newspack.s3.amazonaws.com/uploads/2019/09/Fig_4_3_-1.jpg?fit=2048%2C1375&ssl=1" alt="Card image cap">
+                            <div class="card-img-info">
+                                <img src="https://dapo.kemdikbud.go.id/assets/img/iconsekolah.png" alt="">
+                            </div>
+                            <div class="card-body">
+                              <p class="card-text"> </p>
+                              <h5 class="card-title">SMK Negeri 2 Bengkalis</h5>
+                              <p class="card-text"> </p>
+                              <a href="https://annibuku.com/sekolah/193321-smkn-2-bengkalis" target="_blank" class="btn btn-detail-jurusan">Lihat Detail <i class="fa fa-arrow-right"></i></a>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <img class="card-img-top" src="https://i0.wp.com/bcc-newspack.s3.amazonaws.com/uploads/2019/09/Fig_4_3_-1.jpg?fit=2048%2C1375&ssl=1" alt="Card image cap">
+                            <div class="card-img-info">
+                                <img src="https://dapo.kemdikbud.go.id/assets/img/iconsekolah.png" alt="">
+                            </div>
+                            <div class="card-body">
+                              <p class="card-text"> </p>
+                              <h5 class="card-title">SMK Negeri 3 Bengkalis</h5>
+                              <p class="card-text"> </p>
+                              <a href="https://smkn3bengkalis.sch.id/" target="_blank" class="btn btn-detail-jurusan">Lihat Detail <i class="fa fa-arrow-right"></i></a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sekolah Section End -->
+
+    
+    <!-- Footer Section -->
+    <section class="footer_section">
+        <div class="footer_item">
+            <div class="container">
+                <div class="row">
+                    <!-- Source Code -->
+                    <div class="col-md-4">
+                        <div class="footer_info">
+                            <div class="footer_logo">
+                                <h1><img src="{{ url_for('static', filename='images/logo.png') }}" alt=""><span class="padding"></span>rekjur</h1>
+                            </div>
+                            <div class="footer_description">
+                                <p>rekjur adalah sistem rekomendasi jurusan SMK di kota Bengkalis yang akan merekomendasikan jurusan yang sesuai untuk kamu!</p>
+                            </div>
+                            <div class="footer_socmed">
+                                <ul class="socmed">
+                                    <li class=""><a href=""><i class="fa fa-facebook"></i></a></li>
+                                    <li class=""><a href=""><i class="fa fa-twitter"></i></a></li>
+                                    <li class=""><a href=""><i class="fa fa-instagram"></i></a></li>
+                                    <li class=""><a href=""><i class="fa fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer_dev">
+                    <p>Copyright &copy; 2023 - REKJUR SMK NEGERI BENGKALIS</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer Section End -->
+
+
+    <script src=""{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</body>
+</html>
